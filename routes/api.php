@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Product\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/catalog', [ProductController::class, 'catalog'])->name('products.catalog');

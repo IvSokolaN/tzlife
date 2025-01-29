@@ -11,6 +11,10 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductController extends Controller
 {
+    /**
+     * @param PaginateRequest $paginateRequest
+     * @return AnonymousResourceCollection
+     */
     public function catalog(PaginateRequest $paginateRequest): AnonymousResourceCollection
     {
         $currentPage = $paginateRequest->integer('page', 1);

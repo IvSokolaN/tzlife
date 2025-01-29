@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\OrderStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +13,11 @@ class Order extends Model
         'number',
         'status',
         'user_id',
+        'total_price',
+    ];
+
+    protected $casts = [
+        'status' => OrderStatus::class,
     ];
 
     /**

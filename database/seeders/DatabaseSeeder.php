@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Warehouse;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory(10)->create();
+
         $countWarehouses = 10;
         $warehouses = Warehouse::factory()
             ->count($countWarehouses)
@@ -34,6 +37,5 @@ class DatabaseSeeder extends Seeder
                 );
             });
 
-        // User::factory(10)->create();
     }
 }

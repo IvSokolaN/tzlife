@@ -9,9 +9,7 @@ class Point extends Model
 {
     protected $fillable = [
         'point',
-        'reason',
-        'in',
-        'out',
+        'description',
         'user_id',
     ];
 

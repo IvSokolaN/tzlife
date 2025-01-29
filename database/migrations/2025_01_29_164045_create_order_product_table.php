@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Order;
 use App\Models\Product;
-use App\Models\Warehouse;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,17 +13,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_warehouse', function (Blueprint $table) {
+        Schema::create('order_product', function (Blueprint $table) {
             $table->id();
+            $table->decimal('price');
             $table->unsignedMediumInteger('quantity');
 
             $table->foreignIdFor(Product::class)
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->foreignIdFor(Warehouse::class)
+            $table->foreignIdFor(Order::class)
                 ->nullable()
                 ->constrained()
-                ->nullOnDelete();
+                ->cascadeOnDelete();
 
             $table->timestamps();
         });
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_warehouse');
+        Schema::dropIfExists('order_product');
     }
 };

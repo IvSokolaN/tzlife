@@ -9,3 +9,4 @@ Route::get('/catalog', [ProductController::class, 'catalog'])->name('products.ca
 
 // orders
 Route::post('/create-order', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/approve-order', [OrderController::class, 'approve'])->name('orders.approve');
